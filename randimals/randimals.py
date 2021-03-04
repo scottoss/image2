@@ -87,15 +87,15 @@ class Randimals(commands.Cog):
             await ctx.send("I was unable to get a fox picture.")
 
     @commands.command()
-    async def bird(self, ctx: commands.Context) -> None:
-        """Get a random bird."""
+    async def cacti(self, ctx: commands.Context) -> None:
+        """Get a random cacti."""
 
         await ctx.trigger_typing()
 
         async def fetcher() -> str:
-            url = "http://shibe.online/api/birds?count=1"
+            url = "https://cacti-api.herokuapp.com/"
             async with self.__session.get(url) as response:
-                return (await response.json())[0]
+                return (await response.png())[0]
 
         try:
             file = await self.__get_image_carefully(fetcher)
