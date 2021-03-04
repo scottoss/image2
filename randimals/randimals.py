@@ -52,13 +52,13 @@ class Randimals:
                     io.BytesIO(await image.read()), filename=filename)
 
     @commands.command(pass_context=True, no_pm=True, name="bird")
-    async def _bird(self, ctx: commands.Context):
+    async def _cacti(self, ctx: commands.Context):
         """Shows a random bird."""
 
         await self.bot.type()
-        url = "http://shibe.online/api/birds?count=1"
+        url = "https://cacti-api.herokuapp.com"
         async with aiohttp.get(url) as response:
-            img_url = (await response.json())[0]
+            img_url = (await response.png())[0]
             filename = os.path.basename(img_url)
             async with aiohttp.get(img_url) as image:
                 await self.bot.upload(
