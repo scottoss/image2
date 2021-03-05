@@ -56,7 +56,7 @@ class Randimals:
         """Shows a random bird."""
 
         await self.bot.type()
-        url = "https://random.responsiveimages.io"
+        url = "https://localtunnel-derpystown.herokuapp.com"
         async with aiohttp.get(url) as response:
             img_url = (await response.json())[0]
             filename = os.path.basename(img_url)
