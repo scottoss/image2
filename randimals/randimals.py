@@ -56,9 +56,9 @@ class Randimals:
         """Shows a random bird."""
 
         await self.bot.type()
-        url = "https://cacti-api.herokuapp.com"
+        url = "https://random.responsiveimages.io"
         async with aiohttp.get(url) as response:
-            img_url = (await response.png())[0]
+            img_url = (await response.json())[0]
             filename = os.path.basename(img_url)
             async with aiohttp.get(img_url) as image:
                 await self.bot.upload(
